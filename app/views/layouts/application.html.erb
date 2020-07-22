@@ -9,7 +9,54 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+
+  <style>
+  ul {
+    list-style-type: none;
+    margin: 10px;
+    overflow: hidden;
+  }
+
+  /* li {
+    color: #101010;
+  } */
+
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    margin-left: 70px;
+    margin-right: 70px;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    background-color: #101010;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  li a:hover {
+    background-color: #404040;
+  }
+  </style>
+
+<body>
+    <nav>
+      <div class='navbar'>
+        <ul>
+          <li style="float:left"><a class= "nav-button1"><%= link_to 'HOME', "/"%></a></li>
+          <li style="float:right"><a class= "nav-button2"><%= link_to 'LOG IN', "/login" %></a></li> 
+          <!-- <li style="float:right"><a class= "nav-button3"> link_to 'LOG OUT', "/login" %></a></li> #if current_user? -->
+        </ul>
+      </div>
+    <nav>
+
+    <% flash.each do |type, message| %>
+      <%= message%>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

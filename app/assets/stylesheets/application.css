@@ -43,6 +43,8 @@
   opacity: .2 ;
 }
 
+
+
 @keyframes MoveUpDown {
   0%, 100% {
     bottom: 0;
@@ -54,7 +56,7 @@
 .welcome-text {
   font-size: 30px;
   text-align: center;
-  padding-top: 100px;
+  padding-top: 60px;
   letter-spacing: 8px;
 
 
@@ -63,6 +65,7 @@
   font-size: 12px;
   letter-spacing: 9px;
   padding-top: 12px;
+  text-align: center;
 }
 
 

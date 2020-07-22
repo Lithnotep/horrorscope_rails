@@ -6,7 +6,7 @@ RSpec.describe "Welcome Page" do
 
     expect(page).to have_content("WELCOME TO HORROR SCOPES")
     expect(page).to have_content("TODAYS TRAGEDY AS PREDICTED BY THE PLANETS")
-    expect(page).to have_css("img[src*='cathulu_vector.jpg']")
+    expect(page).to have_css("img[src*='logos/whiter_cathulu.png']")
     expect(page).to have_content("project statement and intent")
   end
 end

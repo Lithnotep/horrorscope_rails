@@ -68,6 +68,13 @@
   text-align: center;
 }
 
+.welcome-page-header-content-left-side-window {
+  font-size: 12px;
+  letter-spacing: 9px;
+  padding-top: 12px;
+  text-align: center;
+}
+
 
 h1 {
   color: white;

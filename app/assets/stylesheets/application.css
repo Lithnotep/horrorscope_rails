@@ -13,8 +13,14 @@
  *= require_tree .
  *= require_self
  */
+ /* body  {
+   cursor: url('icons/cathuluicon.png'), auto;
+ } */
 .welcome-body {
    background-color: #101010;
+   /* cursor: url('icons/cathuluicon.png'), auto; */
+
+
  }
  .welcome-page-header-content {
    padding-top: 200px;
@@ -42,6 +48,7 @@
   padding-bottom: 200px;
   opacity: .2 ;
 }
+
 
 
 

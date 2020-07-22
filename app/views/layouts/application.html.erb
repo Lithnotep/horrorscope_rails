@@ -36,18 +36,25 @@
     padding-top: 10px;
     padding-bottom: 10px;
   }
-
+  body{
+    cursor: url('icons/cathuluicon.gif'), auto;
+  }
   li a:hover {
     background-color: #404040;
   }
   </style>
+  <!-- <style type="text/css">
+    body{
+      cursor: url('icons/cathuluicon.png'), auto;
+    }
+  </style> -->
 
 <body>
     <nav>
       <div class='navbar'>
         <ul>
           <li style="float:left"><a class= "nav-button1"><%= link_to 'HOME', "/"%></a></li>
-          <li style="float:right"><a class= "nav-button2"><%= link_to 'LOG IN', "/login" %></a></li> 
+          <li style="float:right"><a class= "nav-button2"><%= link_to 'LOG IN', "/login" %></a></li>
           <!-- <li style="float:right"><a class= "nav-button3"> link_to 'LOG OUT', "/login" %></a></li> #if current_user? -->
         </ul>
       </div>

@@ -10,9 +10,55 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2020_07_23_200337) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "daily_harbingers", force: :cascade do |t|
+    t.bigint "harbinger_id"
+    t.bigint "daily_message_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["daily_message_id"], name: "index_daily_harbingers_on_daily_message_id"
+    t.index ["harbinger_id"], name: "index_daily_harbingers_on_harbinger_id"
+  end
+
+  create_table "daily_messages", force: :cascade do |t|
+    t.string "description"
+    t.string "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "harbingers", force: :cascade do |t|
+    t.string "name"
+    t.integer "neo_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "personal_messages", force: :cascade do |t|
+    t.string "description"
+    t.string "date"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_personal_messages_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "birthday"
+    t.string "password_digest"
+    t.bigint "harbinger_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["harbinger_id"], name: "index_users_on_harbinger_id"
+  end
+
+  add_foreign_key "daily_harbingers", "daily_messages"
+  add_foreign_key "daily_harbingers", "harbingers"
+  add_foreign_key "personal_messages", "users"
+  add_foreign_key "users", "harbingers"
 end

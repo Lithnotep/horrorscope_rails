@@ -13,12 +13,20 @@
  *= require_tree .
  *= require_self
  */
+ /* body  {
+   cursor: url('icons/cathuluicon.png'), auto;
+ } */
 .welcome-body {
    background-color: #101010;
+   /* cursor: url('icons/cathuluicon.png'), auto; */
+
+
  }
+
  .welcome-page-header-content {
    padding-top: 200px;
  }
+
 .floaty-cathulu-container {
   /* animation: bob 5s, ease-in-out, infinite, alternate;
   transition: opacity .5s;
@@ -33,7 +41,6 @@
   align-items: center;
 }
 
-
 .cathulu {
   animation: MoveUpDown 2.5s linear infinite;
   position: absolute;
@@ -43,8 +50,6 @@
   opacity: .2 ;
 }
 
-
-
 @keyframes MoveUpDown {
   0%, 100% {
     bottom: 0;
@@ -53,19 +58,29 @@
     bottom: 10px;
   }
 }
+
 .welcome-text {
   font-size: 30px;
   text-align: center;
   padding-top: 60px;
   letter-spacing: 8px;
-
-
 }
 .welcome-page-header-content-subtitle {
   font-size: 12px;
   letter-spacing: 9px;
   padding-top: 12px;
   text-align: center;
+}
+
+.personal-page-header-content-left-side-window {
+  float: left;
+  font-size: 12px;
+  letter-spacing: 9px;
+  padding-top: 12px;
+  text-align: center;
+  border-radius: 9;
+  border: 2px solid white;
+  border-radius: 25px;
 }
 
 
@@ -76,7 +91,34 @@ h1 {
   text-align: center;
 }
 
+h2 {
+  color: white;
+  /* font-family: "Helvetica"; */
+  font-weight: lighter;
+  text-align: center;
+}
+
 p{
   color: white;
+  text-align: center;
+}
+
+.daily-header {
+  font-size: 30px;
+  text-align: center;
+  padding-top: 30px;
+  letter-spacing: 8px;
+}
+
+.daily-subheader {
+  font-size: 18px;
+  text-align: center;
+  padding-top: 30px;
+  letter-spacing: 5px;
+}
+
+.daily-subtitle {
+  font-size: 12px;
+  letter-spacing: 9px;
   text-align: center;
 }

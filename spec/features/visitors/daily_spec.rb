@@ -4,8 +4,7 @@ RSpec.describe 'visitor can visit daily horrorscope page' do
   it 'and see what possibilities await' do
     visit '/daily'
 
-    expect(page).to have_content('Daily Darkness')
-    expect(page).to have_content('Four Harbingers')
-    save_and_open_page
+    expect(page).to have_content('DAILY DARKNESS')
+    expect(page).to have_content('FOUR HARBINGERS')
   end
 end

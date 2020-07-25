@@ -7,6 +7,6 @@ RSpec.describe PersonalMessage, type: :model do
   end
 
   describe 'Relationships' do
-    it {should belong_to(:user)}
+    it {should belong_to :user}
   end
 end

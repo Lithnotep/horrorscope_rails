@@ -7,7 +7,7 @@ RSpec.describe "Welcome Page" do
     expect(page).to have_content("WELCOME TO HORROR SCOPES")
     expect(page).to have_content("TODAYS TRAGEDY AS PREDICTED BY THE PLANETS")
 
-  
+
 
     expect(page).to have_content("LOG IN")
     expect(page).to have_content("HOME")

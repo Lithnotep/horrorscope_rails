@@ -7,7 +7,8 @@ RSpec.describe Harbinger, type: :model do
   end
 
   describe 'Relationships' do
-    it {should have_many(:users)}
+    it {should have_many(:harbinger_users)}
+    it {should have_many(:users).through(:harbinger_users)}
     it {should have_many(:daily_harbingers)}
     it {should have_many(:daily_messages).through(:daily_harbingers)}
   end

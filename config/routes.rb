@@ -4,8 +4,13 @@ Rails.application.routes.draw do
   get '/profile', to: 'profile#index'
   get '/personal', to: 'personal#show'
 
-  get 'auth/google/callback', to: 'sessions#create'
-  resources :sessions, only: [:create]
+
+
+  get '/auth/google/callback', to: 'sessions#create'
+  get '/auth/failure', to:redirect('/')
+  # get '/login', to: redirect("/auth/google_oauth2")
+  get '/logout', to: 'sessions#destroy'
+  resources :sessions, only: [:create, :destroy]
 
   # get 'auth/failure', to: redirect('/')
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

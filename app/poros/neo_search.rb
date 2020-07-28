@@ -1,9 +1,11 @@
 class NeoSearch
 
   def daily_data
-    data_pull = NeoService.new.daily
+    NeoService.new.daily
   end
 
-
+  def birthday_data(birthdate)
+    NeoService.new.birthday(birthdate)
+  end
 
 end

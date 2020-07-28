@@ -4,8 +4,15 @@ class NeoService
     get_json("daily")
   end
 
+  def birthday(user_birthdate)
+    params = {
+                birthday: user_birthdate
+             }
+    get_json_params("birthday", params)
+  end
+
   def conn
-    Faraday.new(url: "http://localhost:9292") do |faraday|
+    Faraday.new(url: "https://stark-ravine-66155.herokuapp.com") do |faraday|
       faraday.adapter Faraday.default_adapter
     end
   end

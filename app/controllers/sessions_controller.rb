@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   def create
 
     auth = request.env['omniauth.auth']
-    
+    # harbinger = Harbinger.new(birthday)
     user = User.create_from_omniauth(auth)
     user.google_token = auth.credentials[:token]
     # refresh_token = access_token.credentials.refresh_token
@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
     user.save!
     cookies.encrypted[:current_user_id] = {value: user.id, expires: Time.now + 7.days}
 
-    redirect_to root_path
+    redirect_to birthday_path
 
     # require "pry"; binding.pry
     # current_user.update(token: auth['credentials']['token'])

@@ -6,12 +6,18 @@
   </p>
 
   <div>
+    <p class="daily-subheader">PLACEHOLDER FOR DAILY HORRORSCOPE
+  </div>
+  <div>
     <p class="daily-subheader">THE FOUR HARBINGERS OF DARKNESS DETECTED NEAR EARTH TODAY MURMUR OF YOUR DEMISE...
-    <div>
-      <p class="daily-subtitle">PLACEHOLDER FOR DAILY HORRORSCOPE
-    </div>
-    <div>
-      <p class="daily-subtitle">PLACEHOLDER FOR FOUR NEOS INFORMATION
+    <div class="neos">
+      <% @events.each do |event| %>
+        <ul class="daily-subtitle" class="neo">
+          <li>NAME: <%= event.harbinger.name.upcase %></li>
+          <li>RELATIVE VELOCITY (MPH): <%= event.relative_velocity_mph %></li>
+          <li>LUNAR DISTANCE: <%= event.lunar_distance %></li>
+        </ul>
+      <% end %>
     </div>
   </div>
 </body>

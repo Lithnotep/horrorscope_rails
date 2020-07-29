@@ -50,6 +50,15 @@
   opacity: .2 ;
 }
 
+.success {
+  color: #505050;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  letter-spacing: 9px;
+}
+
 @keyframes MoveUpDown {
   0%, 100% {
     bottom: 0;
@@ -57,6 +66,22 @@
   50% {
     bottom: 10px;
   }
+}
+.button-left {
+  float: left;
+  background-color: white;
+  color: #101010;
+  text-decoration: none;
+  text-transform: uppercase;
+  
+}
+
+.button-right {
+  float: right;
+  background-color: white;
+  color: #101010;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
 .welcome-text {

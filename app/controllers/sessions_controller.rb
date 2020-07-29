@@ -12,13 +12,17 @@ class SessionsController < ApplicationController
     # user.google_refresh_token = refresh_token if refresh_token.present?
     current_user.save!
     session[:user_id] = current_user.id
-    cookies.encrypted[:user_id] = {value: current_user.id, expires: Time.now + 7.days}
+    # cookies.encrypted[:user_id] = {value: current_user.id, expires: Time.now + 7.days}
 
     redirect_to profile_path
   end
 
   def destroy
-    cookies.encrypted[:current_user_id] = nil
+    # cookies.encrypted[:user_id] = nil
+    if current_user
+      session.delete(:user_id)
+      flash[:success] = "GOOD BYE. GOOD LUCK. OOGA BOOGA."
+    end
     redirect_to root_path
   end
 end

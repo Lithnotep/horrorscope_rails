@@ -65,11 +65,24 @@
   padding-top: 60px;
   letter-spacing: 8px;
 }
+.BIRTHDAY-HEADER-text {
+  font-size: 20px;
+  text-align: center;
+  padding-top: 60px;
+  letter-spacing: 6px;
+}
 .welcome-page-header-content-subtitle {
   font-size: 12px;
   letter-spacing: 9px;
   padding-top: 12px;
   text-align: center;
+}
+.user-edit-page-header-content-subtitle {
+  font-size: 14px;
+  letter-spacing: 9px;
+  padding-top: 12px;
+  text-align: center;
+  color: white;
 }
 
 .personal-page-header-content-left-side-window {

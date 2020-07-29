@@ -1,10 +1,6 @@
 class ApplicationController < ActionController::Base
 
-  # 
-  # def current_user
-  #   # code
-  # end
-  def current_user
+  def current_user?
     @current_user ||= if session[:user_id]
                         User.find(session[:user_id])
                       else
@@ -12,4 +8,9 @@ class ApplicationController < ActionController::Base
                       end
     @current_user != nil
   end
+
+  def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+
 end

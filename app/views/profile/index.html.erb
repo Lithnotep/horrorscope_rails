@@ -1,15 +1,17 @@
 <body>
   <div class="nav bar">
-    
+
   </div>
   <!-- <canvas id="canvas1"></canvas> -->
   <div class="profile_page_header">
     <canvas id="canvas1"></canvas>
     <div class="profile_page_header_content">
       <h2 text-align='center;' class="profile_page_header_content_title"  >CHOOSE YOUR FATE</h2>
-        <button id="today-button" type="button" name="Today"> Today </button>
+        <%= link_to "TODAY", "/daily" %>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <button id="birthday-button" type="button" name="Birthday"> Birthday </button>
+        <%= link_to "BIRTHDAY", "/users/#{@user.id}/edit" if @user.birthday == nil%>
+        <%= link_to "PROFILE", "/personal" if @user.birthday %>
+      
     </div>
   </div>
 

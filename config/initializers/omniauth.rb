@@ -4,6 +4,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
       scope: 'userinfo.profile, userinfo.email',
       image_aspect_ratio: 'square', image_size: 48,
       access_type: 'online',
-      name: 'google'
+      name: 'google',
+      :provider_ignores_state => true
     }
 end

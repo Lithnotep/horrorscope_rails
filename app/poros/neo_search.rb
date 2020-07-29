@@ -12,7 +12,7 @@ class NeoSearch
     data_pull = NeoService.new.daily
     data_pull.map do |neo|
       harbinger = Harbinger.create(name: neo[:name], neo_id: neo[:id])
-      require "pry"; binding.pry
+
       harbinger.events.create(
         event_date: neo[:event_date],
         relative_velocity_mph: neo[:relative_velocity],

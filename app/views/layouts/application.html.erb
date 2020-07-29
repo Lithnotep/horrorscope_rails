@@ -44,6 +44,8 @@
   li a:hover {
     background-color: #404040;
   }
+
+
   </style>
   <!-- <style type="text/css">
     body{
@@ -56,16 +58,21 @@
       <div class='navbar'>
         <ul>
           <li style="float:left"><a class= "nav-button1"><%= link_to 'HOME', "/"%></a></li>
-          <li style="float:left"><a class= "nav-button3"><%= link_to 'PROFILE', "/profile"%></a></li>
+          <!--   <li style="float:left"><a class= "nav-button3">< link_to 'PROFILE', "/profile"%></a></li>-->
           <li style="float:left"><a class= "nav-button1"><%= link_to 'DAILY', daily_index_path %></a></li>
-          <li style="float:right"><a class= "nav-button2"><%= link_to 'LOG IN', '/auth/google' %></a></li>
-          <!-- <li style="float:right"><a class= "nav-button3"> link_to 'LOG OUT', "/login" %></a></li> #if current_user? -->
+          <% if current_user.nil? %>
+            <li style="float:right"><a class= "nav-button2"><%= link_to 'LOG IN', '/auth/google'%></a></li>
+          <% else %>
+            <li style="float:right"><a class= "nav-button2"> <%= link_to 'LOG OUT', "/logout"%></a></li>
+          <% end %>
         </ul>
       </div>
     </nav>
 
     <% flash.each do |type, message| %>
-      <%= message%>
+      <div class="flash <%= type %>">
+        <%= message%>
+      </div>
     <% end %>
 
     <%= yield %>

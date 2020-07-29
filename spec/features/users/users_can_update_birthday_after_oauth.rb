@@ -12,6 +12,8 @@ RSpec.describe "after logging in" do
     click_on "CONTINUE"
 
     expect(user.birthday).to eq("1990-05-29")
-    expect(current_path).to eq(personal_path)
+    expect(current_path).to eq(profile_path)
+
+    # expect(page).to have_content
   end
 end

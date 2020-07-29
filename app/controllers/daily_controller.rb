@@ -1,3 +1,6 @@
 class DailyController < ApplicationController
-  def index; end
+  def index
+    @neos = NeoSearch.new.daily_neos
+    binding.pry
+  end
 end

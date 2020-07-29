@@ -17,7 +17,7 @@ class Particle {
         let y = Math.sin(this.position)*this.moveRadius + canvas.height/2;
 
         drawStar(x, y, 7, this.size, this.size/50);
-        ctx.fillStyle = "white";
+        ctx.fillStyle = "darkorchid";
         ctx.fill();
         ctx.closePath();
     }
@@ -30,7 +30,7 @@ class Particle {
 
 function init(){
     particleArray = [];
-    for (let i=0; i<250; i++){
+    for (let i=0; i<500; i++){
         let moveRadius = Math.random() * canvas.width;
         let step = (Math.random() * 0.002) + 0.002;
         let position = Math.random() * (Math.PI*2);
@@ -81,6 +81,6 @@ function drawStar(positionX, positionY, spikes, outerRadius, innerRadius){
     }
     ctx.lineTo(positionX, positionY - outerRadius);
     ctx.closePath();
-    ctx.fillStyle = "pink";
+    ctx.fillStyle = "black";
 }
 });

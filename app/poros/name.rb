@@ -1,5 +1,5 @@
 class Name
-
+  attr_reader :names
   def initialize
     @names = [
     'Jesse', 'Addaya', 'Ahhotpe', 'Ahmes', 'Ahmose',

@@ -39,6 +39,13 @@ ActiveRecord::Schema.define(version: 2020_07_29_143344) do
     t.index ["harbinger_id"], name: "index_events_on_harbinger_id"
   end
 
+  create_table "harbinger_users", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "harbinger_id"
+    t.index ["harbinger_id"], name: "index_harbinger_users_on_harbinger_id"
+    t.index ["user_id"], name: "index_harbinger_users_on_user_id"
+  end
+
   create_table "harbingers", force: :cascade do |t|
     t.string "name"
     t.integer "neo_id"
@@ -59,15 +66,17 @@ ActiveRecord::Schema.define(version: 2020_07_29_143344) do
     t.string "name"
     t.string "birthday"
     t.string "password_digest"
-    t.bigint "harbinger_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["harbinger_id"], name: "index_users_on_harbinger_id"
+    t.string "google_token"
+    t.string "google_refresh_token"
+    t.string "email"
   end
 
   add_foreign_key "daily_harbingers", "daily_messages"
   add_foreign_key "daily_harbingers", "harbingers"
   add_foreign_key "events", "harbingers"
+  add_foreign_key "harbinger_users", "harbingers"
+  add_foreign_key "harbinger_users", "users"
   add_foreign_key "personal_messages", "users"
-  add_foreign_key "users", "harbingers"
 end

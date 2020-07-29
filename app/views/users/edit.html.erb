@@ -1,0 +1,17 @@
+<body class="welcome-body">
+  <h1 class="BIRTHDAY-HEADER-text"> WELCOME <%=@user.name.upcase%>! <br><br> PLEASE ENTER YOUR BIRTHDAY TO GET YOUR PERSONALIZED READING</h1>
+
+  <section class = "birthday_form">
+
+    <%=form_tag user_path, method: :patch do %>
+      <div class="form_field">
+        <div class="user-edit-page-header-content-subtitle">
+          <%= label_tag "BIRTHDAY:" %>
+
+          <%= text_field_tag :birthday, 'YYYY-MM-DD', class: "block col-12 field" %>
+        </div>
+      </div>
+      <%=submit_tag 'CONTINUE',class: "mt2 btn btn-primary mb1 bg-teal"%>
+    <% end %>
+  </section>
+</body>

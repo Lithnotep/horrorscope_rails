@@ -122,3 +122,7 @@ p{
   letter-spacing: 9px;
   text-align: center;
 }
+
+.navbar {
+  z-index:2;
+}

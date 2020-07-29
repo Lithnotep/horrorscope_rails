@@ -5,8 +5,8 @@ class NeoSearch
       harbinger = Harbinger.create(name: neo[:name], neo_id: neo[:id])
       harbinger.events.create(
         event_date: neo[:event_date],
-        relative_velocity_mph: neo[:relative_velocity],
-        lunar_distance: neo[:lunar_distance],
+        relative_velocity_mph: neo[:relative_velocity].to_f.round(2),
+        lunar_distance: neo[:lunar_distance].to_f.round(2),
       )
     end
   end

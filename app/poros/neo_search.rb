@@ -10,10 +10,11 @@ class NeoSearch
 
   def daily_neos
     horrorscope = "you die"
+    names = Name.new
     data_pull = NeoService.new.daily
     message = DailyMessage.create(date: Date.today.to_s, description: horrorscope)
       data_pull.map do |neo|
-      harbinger = message.harbingers.create(name: neo[:name], neo_id: neo[:id])
+      harbinger = message.harbingers.create(name: names.get_name, neo_id: neo[:id])
       harbinger.events.create(
         event_date: neo[:event_date],
         relative_velocity_mph: neo[:relative_velocity].to_f.round(2),

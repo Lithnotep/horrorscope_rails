@@ -1,7 +1,6 @@
 class UsersController< ApplicationController
   def update
     bday = params[:birthday]
-    require "pry"; binding.pry
     harbinger_name = params[:harbinger_name]
     search = NeoSearch.new.birthday_data(bday)
     id = search[:neo_id]

@@ -1,16 +1,23 @@
 <body>
-  <div class="nav bar">
-    
-  </div>
+
   <!-- <canvas id="canvas1"></canvas> -->
   <div class="profile_page_header">
     <canvas id="canvas1"></canvas>
     <div class="profile_page_header_content">
       <h2 text-align='center;' class="profile_page_header_content_title"  >CHOOSE YOUR FATE</h2>
-        <button id="today-button" type="button" name="Today"> Today </button>
+        <div class="button-left">
+          <%= link_to "TODAY", "/daily" %>
+        </div>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <button id="birthday-button" type="button" name="Birthday"> Birthday </button>
+        <div class="button-right">
+          <% if !@user.birthday %>
+            <%= link_to "BIRTHDAY", "/users/#{@user.id}/edit"%>
+          <% else %>
+            <%= link_to "PROFILE", "/personal" if @user.birthday %>
+          <% end  %>
+        </div>
+
     </div>
   </div>
-
+  
 </body>

@@ -12,10 +12,10 @@
     <p class="daily-subheader">THE FOUR HARBINGERS OF DARKNESS DETECTED NEAR EARTH TODAY MURMUR OF YOUR DEMISE...
     <div class="neos">
       <% @events.each do |event| %>
-        <ul class="daily-subtitle" class="neo">
-          <li>NAME: <%= event.harbinger.name.upcase %></li>
-          <li>RELATIVE VELOCITY (MPH): <%= event.relative_velocity_mph %></li>
-          <li>LUNAR DISTANCE: <%= event.lunar_distance %></li>
+        <ul class="daily-subtitle neo">
+          <li class="name">NAME: <%= event.harbinger.name.upcase %></li>
+          <li class="velocity">RELATIVE VELOCITY (MPH): <%= event.relative_velocity_mph %></li>
+          <li class="distance">LUNAR DISTANCE: <%= event.lunar_distance %></li>
         </ul>
       <% end %>
     </div>

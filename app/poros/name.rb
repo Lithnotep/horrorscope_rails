@@ -2,9 +2,9 @@ class Name
   attr_reader :names
   def initialize
     @names = [
-    'Jesse', 'Addaya', 'Ahhotpe', 'Ahmes', 'Ahmose',
-    'Ahmosesaneit', 'Michelle', 'Madeleine', 'Akunosh',
-    'Amenakht', 'Max', 'Amenemhat', "Yog'sothoth", "Azathoth", "Cthulhu", "Shub", "Nyarlathotep", "Shoggoth",
+    'Addaya', 'Ahhotpe', 'Ahmes', 'Ahmose',
+    'Ahmosesaneit', 'Akunosh',
+    'Amenakht', 'Amenemhat', "Yog'sothoth", "Azathoth", "Cthulhu", "Shub", "Nyarlathotep", "Shoggoth",
     'Apophis','Baba','Baenre','Bak','Bakenkhons','Bakenkhonsu','Bakenmut','Bakennefi','Bakenptah','Baky','Bata',
     'Bay','Bek','Bengay','Besenmut','Butehamun','Denger','Deniuenkhons','Djadjaemankh','Djau','Djedefhor','Djedhor',
     'Djedhoriufankh','Djedi','Djedkhonsiufankh','Djedkhonsuefankh','Djedptahefankh','Djedptahiufankh','Djehutmose',

@@ -5,11 +5,8 @@ class NeoService
   end
 
   def conn
-    Faraday.new(url: "http://localhost:9292") do |faraday|
-      faraday.adapter Faraday.default_adapter
-    end
+    Faraday.new('https://stark-ravine-66155.herokuapp.com')
   end
-
 
   def get_json(url)
     response = conn.get(url)

@@ -1,9 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe 'visitor can visit daily horrorscope page' do
-  xit 'and see what possibilities await' do
+  it 'and see what possibilities await' do
     visit '/daily'
-    save_and_open_page
 
     expect(page).to have_content('DAILY DARKNESS')
     expect(page).to have_content('FOUR HARBINGERS')

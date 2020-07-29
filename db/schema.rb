@@ -37,6 +37,14 @@ ActiveRecord::Schema.define(version: 2020_07_28_002005) do
     t.index ["harbinger_id"], name: "index_harbinger_users_on_harbinger_id"
     t.index ["user_id"], name: "index_harbinger_users_on_user_id"
   end
+  
+  create_table "events", force: :cascade do |t|
+    t.float "relative_velocity_mph"
+    t.float "lunar_distance"
+    t.date "event_date"
+    t.bigint "harbinger_id"
+    t.index ["harbinger_id"], name: "index_events_on_harbinger_id"
+  end
 
   create_table "harbingers", force: :cascade do |t|
     t.string "name"
@@ -69,5 +77,6 @@ ActiveRecord::Schema.define(version: 2020_07_28_002005) do
   add_foreign_key "daily_harbingers", "harbingers"
   add_foreign_key "harbinger_users", "harbingers"
   add_foreign_key "harbinger_users", "users"
+  add_foreign_key "events", "harbingers"
   add_foreign_key "personal_messages", "users"
 end

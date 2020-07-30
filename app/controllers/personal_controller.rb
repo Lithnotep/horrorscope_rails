@@ -5,6 +5,7 @@ class PersonalController < ApplicationController
       return @message = PersonalMessage.where(date: Date.today.to_s).first
     else
       @message = PersonalMessage.create!(description: Scope.new.description, date: Date.today.to_s, user_id: current_user.id)
+      @user.add_point
     end
     @date = @message.description[-10..-1]
 

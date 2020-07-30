@@ -13,18 +13,23 @@ class NeoSearch
   end
 
   def daily_neos
-    horrorscope = "you die"
-    names = Name.new
-    data_pull = NeoService.new.daily
-    message = DailyMessage.create(date: Date.today.to_s, description: horrorscope)
-      data_pull.map do |neo|
-      harbinger = message.harbingers.create(name: names.get_name, neo_id: neo[:id])
-      harbinger.events.create(
-        event_date: neo[:event_date],
-        relative_velocity_mph: neo[:relative_velocity].to_f.round(2),
-        lunar_distance: neo[:lunar_distance].to_f.round(2),
-      )
-    end
+    #we need a conditional for if todays generation has already happened
+    # if DailyMessage.last.date == Date.today && DailyMessage.last.harbingers != nil
+    #   DailyMessage.last.harbingers.map do ||
+    # else
+      horrorscope = "you die"
+      names = Name.new
+      data_pull = NeoService.new.daily
+      message = DailyMessage.create(date: Date.today.to_s, description: horrorscope)
+        data_pull.map do |neo|
+        harbinger = message.harbingers.create(name: names.get_name, neo_id: neo[:id])
+        harbinger.events.create(
+          event_date: neo[:event_date],
+          relative_velocity_mph: neo[:relative_velocity].to_f.round(2),
+          lunar_distance: neo[:lunar_distance].to_f.round(2),
+        )
+      end
+    # end
 
   end
 

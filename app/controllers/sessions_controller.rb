@@ -5,12 +5,8 @@ class SessionsController < ApplicationController
   def create
 
     auth = request.env['omniauth.auth']
-    # harbinger = Harbinger.new(birthday)
     current_user = User.create_from_omniauth(auth)
     current_user.update(google_token: auth.credentials[:token])
-    # refresh_token = access_token.credentials.refresh_token
-    # user.google_refresh_token = refresh_token if refresh_token.present?
-
 
     @user = User.create_from_omniauth(auth)
     if @user.persisted?
@@ -24,25 +20,13 @@ class SessionsController < ApplicationController
       session[:user_id] = current_user.id
 
       redirect_to  profile_path
+
     else
-      session["devise.google_data"] = request.env["omniauth.auth"]
+      flash[:error] = "SOMETHING WENT HORRIBLY WRONG WHILE AUTHORIZING YOU. CHECK YOUR CREDENTIALS. IF YOU DARE."
       redirect_to root_path
     end
   end
 
-#############
-
-  #   auth = request.env['omniauth.auth']
-  #   # harbinger = Harbinger.new(birthday)
-  #   current_user = User.create_from_omniauth(auth)
-  #   current_user.update(google_token: auth.credentials[:token])
-  #   # refresh_token = access_token.credentials.refresh_token
-  #   # user.google_refresh_token = refresh_token if refresh_token.present?
-  #   current_user.save!
-  #   session[:user_id] = current_user.id
-  #   # cookies.encrypted[:user_id] = {value: current_user.id, expires: Time.now + 7.days}
-  #
-  #   redirect_to profile_path
 
   def destroy
     # cookies.encrypted[:user_id] = nil

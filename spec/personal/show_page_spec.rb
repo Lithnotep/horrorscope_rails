@@ -14,12 +14,11 @@ RSpec.describe "Welcome Page" do
   end
 
   it "should have landing page, log in link and todays neos" do
-    @user.harbingers.first.name = "ooga booga"
-    @user.harbingers.first.update!(name)
+
 
     visit "/personal"
     expect(page).to have_content("Personal Zodiac")
-    expect(page).to have_content("LOG IN")
+    expect(page).to have_content("LOG OUT")
     expect(page).to have_content("HOME")
     expect(page).to have_content("Track your Harbinger of Doom")
     expect(page).to have_css(".cathulu")

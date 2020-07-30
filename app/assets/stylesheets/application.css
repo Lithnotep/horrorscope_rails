@@ -61,6 +61,14 @@
   font-size: 12px;
   letter-spacing: 9px;
 }
+.error {
+  color: #505050;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  letter-spacing: 7px;
+}
 
 @keyframes MoveUpDown {
   0%, 100% {
@@ -174,11 +182,50 @@ p{
 
 .daily-subtitle {
   color: white;
-  font-size: 12px;
-  letter-spacing: 9px;
+  font-size: 13px;
+  letter-spacing: 6px;
   text-align: center;
 }
 
+.daily-subtitle-neo{
+  color: white;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: center;
+  bottom: 150px;
+  align-items: center;
+  padding-top: 100px;
+}
+.daily-harbinger-info{
+  background-color: #282828;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 50px;
+}
+.daily-horrorscope-info{
+  background-color: #282828;
+  /* padding-top: 20px; */
+  padding-bottom: 20px;
+  margin-left: 340px;
+  margin-right: 340px;
+
+}
+
+.neo_image {
+  animation: MoveUpDown 2.5s linear infinite;
+  position: relative;
+  margin-bottom: 40px;
+
+}
+.neos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
 .profile_page_header_content_title{
   font-size: 30px;
   text-align: center;

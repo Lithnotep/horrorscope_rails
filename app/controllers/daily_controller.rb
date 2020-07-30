@@ -1,5 +1,5 @@
 class DailyController < ApplicationController
   def index
-    @neos = NeoSearch.new.daily_neos
+    @events = NeoSearch.new.daily_neos
   end
 end

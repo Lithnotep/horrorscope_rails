@@ -12,7 +12,6 @@ RSpec.describe "after logging in" do
     expect(page).to have_content("WELCOME #{user.name.upcase}! PLEASE ENTER YOUR BIRTHDAY TO GET YOUR PERSONALIZED READING")
 
     fill_in :birthday, with: "1990-05-29"
-
     click_on "CONTINUE"
 
     expect(user.birthday).to eq("1990-05-29")

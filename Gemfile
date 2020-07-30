@@ -26,8 +26,9 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-gem 'google-api-client', '~> 0.34'
+# gem 'google-api-client', '~> 0.34'
 gem 'omniauth-google-oauth2'
+gem 'google-api-client', require: 'google/apis/calendar_v3'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

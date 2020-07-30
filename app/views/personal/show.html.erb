@@ -3,10 +3,10 @@
   <div class="welcome-page-header">
     <div class="welcome-page-header-content-left-side-window">
       <!-- we will need to bring in personal astriod id and data to this page. -->
-      <h2>Celestial Harbinger: Place holder.</h2>
-      <p>Cursed your fate: 05-29-1990</p>
-      <p>Current Distance: 1032000 miles</p>
-      <p>Currently Orbitting: Venus</p>
+      <h2>Celestial Harbinger:   <%= @user.harbingers.first.name %> </h2>
+      <p>Cursed your fate: <%=  @user.birthday %></p>
+      <p>Current Distance: <!-- <@user.harbingers.first.current_distance  --></p>
+      <p>Currently Orbitting: <!-- <@user.harbingers.first.orbitting %> --></p>
       <p>Anniverary of Catastrophy: 2028</p>
 
 

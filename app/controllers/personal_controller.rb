@@ -1,9 +1,9 @@
 class PersonalController < ApplicationController
   def show
     @user = current_user
-    @horrorscope_message = @user.personal_messages.first.description
-    # require "pry"; binding.pry
-    @predicted_date = @user.personal_messages.first.date
+    @message = current_user.personal_messages.first.description
+    @date = current_user.personal_messages.first.description[-10..-1]
+
     neo_id = @user.harbingers.first.neo_id
     @harbinger = NeoSearch.new.harbinger(neo_id)
   end

@@ -6,6 +6,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
       access_type: "offline",
       prompt: "consent",
       name: 'google',
-      :provider_ignores_state => true
+      provider_ignores_state: true,
+      skip_jwt: true
     }
 end

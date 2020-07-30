@@ -29,5 +29,6 @@ RSpec.describe "after logging in" do
     expect(@user.harbingers.first).to_not eq(nil)
     expect(@user.harbingers.first.name).to_not eq(nil)
     expect(@user.personal_messages).to_not eq([])
+    expect(page).to have_content(@user.personal_messages.first.description)
   end
 end

@@ -1,7 +1,8 @@
 class Scope
   attr_reader :description
   def initialize
-    @description = "You're likely to be #{doom} by #{adj+" "+thing} leading to #{death} death on #{date}"
+    @description = "You're likely to be #{doom} by #{adj+" "+thing} leading to #{death} death on #{@date}"
+    @date = create_date
   end
 
   def doom
@@ -24,7 +25,7 @@ class Scope
     end
   end
 
-  def date
+  def create_date
     year = (2020..2100).to_a.sample
     month = (1..12).to_a.sample
     day = (1..28).to_a.sample

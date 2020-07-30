@@ -7,8 +7,7 @@ class UsersController< ApplicationController
     id = search[:neo_id]
 
     current_user.update!(birthday: bday)
-    @message = PersonalMessage.create!(description: Scope.new.description, date: Date.today.to_s, user_id: current_user.id)
-    harbinger = current_user.harbingers.create!(neo_id: id, name: harbinger_name)
+    current_user.harbingers.create!(neo_id: id, name: harbinger_name)
     redirect_to personal_path
   end
 

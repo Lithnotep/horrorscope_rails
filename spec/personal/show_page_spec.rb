@@ -50,6 +50,7 @@ RSpec.describe "Welcome Page" do
     expect(page).to have_css(".cathulu")
     click_on "Change your Fate"
     expect(@user.points).to eq(5)
-
+    save_and_open_page
+    
   end
 end

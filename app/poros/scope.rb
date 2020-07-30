@@ -1,8 +1,8 @@
 class Scope
   attr_reader :description
   def initialize(fate = "bad")
-    @description = make_scope(fate)
     @date = create_date
+    @description = make_scope(fate)
   end
 
   def make_scope(fate)

@@ -1,7 +1,7 @@
 class Scope
   attr_reader :description
   def initialize
-    @description = "Your likely to be #{doom} by #{adj+" "+thing} leading to a #{death} death on #{date}"
+    @description = "You're likely to be #{doom} by #{adj+" "+thing} leading to a #{death} death on #{date}"
   end
 
   def doom

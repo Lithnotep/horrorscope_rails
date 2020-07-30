@@ -305,7 +305,7 @@ DEPENDENCIES
   faker
   faraday
   figaro
-  google-api-client (~> 0.34)
+  google-api-client
   jbuilder (~> 2.5)
   jquery-rails
   launchy

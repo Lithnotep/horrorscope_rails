@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
   resources :sessions, only: [:create, :destroy]
   resources :birthday, only: [:new]
+  resources :tasks
   # get 'auth/failure', to: redirect('/')
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :daily, only: [:index]

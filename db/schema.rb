@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_29_143344) do
+ActiveRecord::Schema.define(version: 2020_07_30_032548) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,19 @@ ActiveRecord::Schema.define(version: 2020_07_29_143344) do
     t.index ["user_id"], name: "index_personal_messages_on_user_id"
   end
 
+  create_table "tasks", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.string "event"
+    t.string "members"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_tasks_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "birthday"
@@ -71,6 +84,7 @@ ActiveRecord::Schema.define(version: 2020_07_29_143344) do
     t.string "google_token"
     t.string "google_refresh_token"
     t.string "email"
+    t.datetime "expires_at"
   end
 
   add_foreign_key "daily_harbingers", "daily_messages"
@@ -79,4 +93,5 @@ ActiveRecord::Schema.define(version: 2020_07_29_143344) do
   add_foreign_key "harbinger_users", "harbingers"
   add_foreign_key "harbinger_users", "users"
   add_foreign_key "personal_messages", "users"
+  add_foreign_key "tasks", "users"
 end

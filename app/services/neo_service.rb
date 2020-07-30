@@ -11,8 +11,15 @@ class NeoService
     get_json_params("birthday", params)
   end
 
+  def harbinger(neo_id)
+    params = {
+                asteroid_id: neo_id
+             }
+    get_json_params("harbinger", params)
+  end
+
   def conn
-    Faraday.new(url: "https://stark-ravine-66155.herokuapp.com") 
+    Faraday.new(url: "https://stark-ravine-66155.herokuapp.com")
   end
 
   def get_json(url)

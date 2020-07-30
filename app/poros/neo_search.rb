@@ -27,6 +27,10 @@ class NeoSearch
     message
   end
 
+  def harbinger(asteroid_id)
+    NeoService.new.harbinger(asteroid_id)
+  end
+
   def new_daily_message
     # awaiting message generator implementation
     DailyMessage.create(description: 'all your base are belong to us', date: Date.today.to_s)

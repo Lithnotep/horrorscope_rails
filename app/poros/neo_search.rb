@@ -8,6 +8,10 @@ class NeoSearch
     NeoService.new.birthday(birthdate)
   end
 
+  def harbinger(asteroid_id)
+    NeoService.new.harbinger(asteroid_id)
+  end
+
   def daily_neos
     data_pull = NeoService.new.daily
     data_pull.map do |neo|

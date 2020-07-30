@@ -1,10 +1,13 @@
 require "rails_helper"
 
 RSpec.describe "after logging in" do
-  it "a user can update birthday" do
-
+  before :each do
     user = User.create!(name: "Dione")
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+  end
+  it "a user can update birthday" do
+
     visit("/users/#{user.id}/edit")
     expect(page).to have_content("WELCOME #{user.name.upcase}! PLEASE ENTER YOUR BIRTHDAY TO GET YOUR PERSONALIZED READING")
 

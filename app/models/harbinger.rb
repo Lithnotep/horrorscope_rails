@@ -4,4 +4,5 @@ class Harbinger < ApplicationRecord
   has_many :users, through: :harbinger_users
   has_many :daily_harbingers
   has_many :daily_messages, through: :daily_harbingers
+  has_many :events
 end

@@ -14,7 +14,6 @@ class SessionsController < ApplicationController
 
     @user = User.create_from_omniauth(auth)
     if @user.persisted?
-      flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Google"
       auth = request.env["omniauth.auth"]
       @user.google_token = auth.credentials[:token]
       @user.expires_at = auth.credentials[:expires_at]

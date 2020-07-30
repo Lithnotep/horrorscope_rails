@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get '/profile', to: 'profile#index'
   get '/personal', to: 'personal#show'
+  patch '/personal/:user_id', to: 'personal#update'
 
 
   resources :users, only: [:edit, :update]

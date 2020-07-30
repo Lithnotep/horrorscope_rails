@@ -39,4 +39,17 @@ RSpec.describe "Welcome Page" do
     # expect(cathulu).not_to be_empty
     # expect(page).to have_content("project statement and intent")
   end
+  it "should have landing page, and see change fate and click it to change fate" do
+
+    visit "/personal"
+    expect(@user.points).to eq(5)
+    expect(page).to have_content("Personal Zodiac")
+    expect(page).to have_content("LOG OUT")
+    expect(page).to have_content("HOME")
+    expect(page).to have_content("Track your Harbinger of Doom")
+    expect(page).to have_css(".cathulu")
+    click_on "Change your Fate"
+    expect(@user.points).to eq(5)
+
+  end
 end

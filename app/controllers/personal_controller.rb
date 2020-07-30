@@ -14,4 +14,14 @@ class PersonalController < ApplicationController
     neo_id = @user.harbingers.first.neo_id
     @harbinger = NeoSearch.new.harbinger(neo_id)
   end
+
+  def update
+    @user = User.find(params[:user_id])
+    @user.update!(points: 0)
+    @user.save
+    @user.messages.last.update!(description: Scope.new("good").description)
+    @user.messages.last.save
+    redirect_to "/personal"
+  end
+
 end

@@ -1,12 +1,14 @@
 class UsersController< ApplicationController
   def update
     bday = params[:birthday]
-    harbinger_name = params[:harbinger_name]
+    name = Name.new
+    harbinger_name = name.get_name
     search = NeoSearch.new.birthday_data(bday)
     id = search[:neo_id]
-    current_user.update!(birthday: bday)
-    harbinger = current_user.harbingers.create!(neo_id: id, name: harbinger_name)
 
+    current_user.update!(birthday: bday)
+    @message = PersonalMessage.create!(description: Scope.new.description, date: Date.today.to_s, user_id: current_user.id)
+    harbinger = current_user.harbingers.create!(neo_id: id, name: harbinger_name)
     redirect_to personal_path
   end
 

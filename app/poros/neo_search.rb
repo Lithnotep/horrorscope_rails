@@ -10,7 +10,7 @@ class NeoSearch
 
   def daily_message
     unless DailyMessage.where(date: Date.today.to_s).empty?
-      return @message = DailyMessage.where(date: Date.today.to_s)
+      return @message = DailyMessage.where(date: Date.today.to_s).first
     else
       daily_neos
     end
@@ -32,8 +32,7 @@ class NeoSearch
   end
 
   def new_daily_message
-    # awaiting message generator implementation
-    DailyMessage.create(description: 'all your base are belong to us', date: Date.today.to_s)
+    DailyMessage.create(description: Scope.new.description.upcase, date: Date.today.to_s)
   end
 
   def harbinger_params(neo, name)

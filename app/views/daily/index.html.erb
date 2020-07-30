@@ -1,17 +1,26 @@
 <body class="welcome-body">
   <h1 class="daily-header">DAILY DARKNESS</h1>
   <p class="daily-subtitle">
-    YOU CAN'T FEEL THE DANGER<br>
-    YOU CAN'T SEE
+    THE FOUR HARBINGERS OF DARKNESS NEAREST EARTH TODAY MURMUR OF YOUR DEMISE...
   </p>
 
+  <div class="daily-horrorscope-info">
+    <p class="daily-subheader"><%= @message.description %>
+  </div>
   <div>
-    <p class="daily-subheader">THE FOUR HARBINGERS OF DARKNESS DETECTED NEAR EARTH TODAY MURMUR OF YOUR DEMISE...
-    <div>
-      <p class="daily-subtitle">PLACEHOLDER FOR DAILY HORRORSCOPE
-    </div>
-    <div>
-      <p class="daily-subtitle">PLACEHOLDER FOR FOUR NEOS INFORMATION
+    <div class="neos">
+      <% @message.harbingers.each do |harbinger| %>
+        <ul class="daily-subtitle-neo">
+          <div class="neo_image">
+            <%= image_tag("icons/glowy_dark_neo.png", width: 160) %>
+          </div>
+          <div class="daily-harbinger-info">
+            <li class="name">NAME: <%= harbinger.name.upcase %></li><br>
+            <li class="velocity">RELATIVE VELOCITY (MPH): <%= harbinger.events.last.relative_velocity_mph %></li><br>
+            <li class="distance">LUNAR DISTANCE: <%= harbinger.events.last.lunar_distance %></li>
+          </div>
+        </ul>
+      <% end %>
     </div>
   </div>
 </body>

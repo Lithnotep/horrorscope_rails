@@ -1,5 +1,5 @@
 class DailyController < ApplicationController
   def index
-    search = NeoSearch.new.daily_data
+    @message = NeoSearch.new.daily_message
   end
 end

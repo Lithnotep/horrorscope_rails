@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_23_200337) do
+ActiveRecord::Schema.define(version: 2020_07_30_201303) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,21 @@ ActiveRecord::Schema.define(version: 2020_07_23_200337) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "events", force: :cascade do |t|
+    t.float "relative_velocity_mph"
+    t.float "lunar_distance"
+    t.date "event_date"
+    t.bigint "harbinger_id"
+    t.index ["harbinger_id"], name: "index_events_on_harbinger_id"
+  end
+
+  create_table "harbinger_users", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "harbinger_id"
+    t.index ["harbinger_id"], name: "index_harbinger_users_on_harbinger_id"
+    t.index ["user_id"], name: "index_harbinger_users_on_user_id"
+  end
+
   create_table "harbingers", force: :cascade do |t|
     t.string "name"
     t.integer "neo_id"
@@ -47,18 +62,37 @@ ActiveRecord::Schema.define(version: 2020_07_23_200337) do
     t.index ["user_id"], name: "index_personal_messages_on_user_id"
   end
 
+  create_table "tasks", force: :cascade do |t|
+    t.string "title", default: "DOOMS DAY"
+    t.string "description"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.string "event"
+    t.string "members"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_tasks_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "birthday"
     t.string "password_digest"
-    t.bigint "harbinger_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["harbinger_id"], name: "index_users_on_harbinger_id"
+    t.string "google_token"
+    t.string "google_refresh_token"
+    t.string "email"
+    t.datetime "expires_at"
+    t.integer "points", default: 0
   end
 
   add_foreign_key "daily_harbingers", "daily_messages"
   add_foreign_key "daily_harbingers", "harbingers"
+  add_foreign_key "events", "harbingers"
+  add_foreign_key "harbinger_users", "harbingers"
+  add_foreign_key "harbinger_users", "users"
   add_foreign_key "personal_messages", "users"
-  add_foreign_key "users", "harbingers"
+  add_foreign_key "tasks", "users"
 end

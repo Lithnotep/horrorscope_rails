@@ -7,7 +7,7 @@ class PersonalController < ApplicationController
       @message = PersonalMessage.create!(description: Scope.new.description, date: Date.today.to_s, user_id: current_user.id)
       @user.add_point
     end
-    
+
     @date = @message.description[-10..-1]
 
     # @message = current_user.personal_messages.first.description

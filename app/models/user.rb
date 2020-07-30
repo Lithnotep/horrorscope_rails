@@ -15,6 +15,10 @@ class User < ApplicationRecord
     end
     user
   end
+
+  def add_point
+    update!(points: points + 1) if points < 5
+  end
   # def self.create_from_omniauth(auth)
   #   user = User.where(email: auth.info[:email]).first_or_initialize do |user|
   #     user.name = auth.info[:name]

@@ -20,8 +20,11 @@
   </div>
 
   <div class="personal horoscope">
+    <%  if @user.points == 5 %>
+      <%= button_to "Change your Fate", "/personal/#{@user.id}", method: 'patch' %>
+    <% end %>
     <div class="personal message">
-      <p><%= @message %></p>
+      <p><%= @message.description %></p>
       <p><%= @date %></p>
     </div>
     <div class="add-to-cal-button">

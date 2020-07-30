@@ -1,7 +1,20 @@
 class Scope
   attr_reader :description
-  def initialize
-    @description = "You're likely to be #{doom} by #{adj+" "+thing} leading to #{death} death on #{date}"
+  def initialize(fate = "bad")
+    @date = create_date
+    @description = make_scope(fate)
+  end
+
+  def make_scope(fate)
+    if fate == "bad"
+      "You're likely to be #{doom} by #{adj+" "+thing} leading to #{death} death on #{@date}"
+    else
+      "You've narrowly avoided being #{doom} by #{adj+" "+thing} leading to #{death} death on #{@date}"
+    end
+  end
+
+  def likelyhood
+
   end
 
   def doom

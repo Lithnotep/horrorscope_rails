@@ -26,8 +26,8 @@ class Scope
 
   def date
     year = (2020..2100).to_a.sample
-    month = (1..12).to_a.sample
-    day = (1..28).to_a.sample
+    month = sprintf '%02d', (1..12).to_a.sample
+    day = sprintf '%02d', (1..28).to_a.sample
     "#{year}-#{month}-#{day}"
   end
 

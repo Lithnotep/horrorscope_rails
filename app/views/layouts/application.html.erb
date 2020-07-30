@@ -58,11 +58,11 @@
       <div class='navbar'>
         <ul>
           <li style="float:left"><a class= "nav-button1"><%= link_to 'HOME', "/"%></a></li>
-          <!--   <li style="float:left"><a class= "nav-button3">< link_to 'PROFILE', "/profile"%></a></li>-->
           <li style="float:left"><a class= "nav-button1"><%= link_to 'DAILY', daily_index_path %></a></li>
           <% if current_user.nil? %>
             <li style="float:right"><a class= "nav-button2"><%= link_to 'LOG IN', '/auth/google'%></a></li>
           <% else %>
+            <li style="float:left"><a class= "nav-button3"> <%= link_to 'PROFILE', "/profile" %></a></li>
             <li style="float:right"><a class= "nav-button2"> <%= link_to 'LOG OUT', "/logout"%></a></li>
           <% end %>
         </ul>
@@ -78,5 +78,6 @@
     <%= yield %>
     <script type="text/javascript" src="name_generator.js"></script>
     <script type="text/javascript" src="egyptian_set.js"></script>
+
   </body>
 </html>

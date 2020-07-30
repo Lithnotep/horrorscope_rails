@@ -30,5 +30,8 @@ RSpec.describe "after logging in" do
     expect(@user.harbingers.first.name).to_not eq(nil)
     expect(@user.personal_messages).to_not eq([])
     expect(page).to have_content(@user.personal_messages.first.description)
+
+    click_on "Add To Google Calendar"
+    expect(current_path).to eq(new_task_path)
   end
 end

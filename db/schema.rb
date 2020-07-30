@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 2020_07_30_032548) do
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.string "title"
+    t.string "title", default: "DOOMS DAY"
     t.string "description"
     t.datetime "start_date"
     t.datetime "end_date"

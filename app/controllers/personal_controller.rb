@@ -1,6 +1,9 @@
 class PersonalController < ApplicationController
   def show
     @user = current_user
+    neo_id = @user.harbingers.first.neo_id
+    @harbinger = NeoSearch.new.harbinger(neo_id)
+  
     unless PersonalMessage.where(date: Date.today.to_s).empty?
       return @message = PersonalMessage.where(date: Date.today.to_s).first
     else
@@ -10,8 +13,6 @@ class PersonalController < ApplicationController
 
     @date = @message.description[-10..-1]
 
-    neo_id = @user.harbingers.first.neo_id
-    @harbinger = NeoSearch.new.harbinger(neo_id)
   end
 
   def update

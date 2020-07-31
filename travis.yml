@@ -1,12 +1,19 @@
-language: ruby
-rvm:
- - 2.2
- - jruby
-services:
-  - postgresql
+langauge: ruby
+rbenv:
+- 2.5.3
+addons:
+  postgresql: 9.6
+  chrome: stable
+dist: xenial
+before_install:
+- gem install bundler
 script:
-  - RAILS_ENV=test bundle exec rake db:migrate --trace
-  - bundle exec rake db:test:prepare
-  - bundle exec rspec
-before_script:
-  - psql -c 'create database db_test;' -U postgres
+- yarn
+- bundle exec rails db:{create,migrate} RAILS_ENV=test
+- bundle exec rspec
+deploy:
+  provider: heroku
+  api_key:
+    secure: MjGFcPv9dbJsYZbvQMoGQWI0OlfkLyznBCSWhgLqH4Bu6+d4CkKYKDTnRwlHyCRwD8+/9vXdbqUI+XQT8SJJXj44XYoLw+iHLW6tNmLQomHWywr4Z+RZl9SUcyiIpT+VeMTHvE4kat6OdVoKeD8qiR0GWRdB6xfkG+XC2811QPyNoPxA3I0Fka3JIzYKZrkQAGIrnVFIdv4o48U97rxQXor8Pepisy8La68TQS9K82yWeeOn8dlGmEM7yL89CYA5sOvZhayXaCN6VL8lnW1LKJx7q98JRPVBxf9ZqOVzD26Gy5uX1Mhau75shBcVVyvHcLo8XX2CldUOf2712iqGlm9Ku2kBkGxIOMCQRNLmNvs18chviS6DGpwZqjPAFPD6wCavzEAxPbPmUXvybFlx9+Kpb810tfRZwsrnw4dWyZj7QTrK6t7dFo0NLDlCxZ9bHQ6TT4whlDsoksigZLbYUiGPziH1/ClsjbjE9lwYnpMXbsAENb9+UDx0JBNt+hfV/F4Dg/Xl24lxXqIPsZndLG/+W5kF4bnfoNDLGbJGnOVVGDTLoA1Jt3t2Vgh59LyAj2vXP8YyKzfA1XF6N54BGP7pWOZKpC2g0NH08Z8UqbzRacT7dMkXYNBEb8rGYuJ6gLKoLK3yqfxoganLdezOIwWXsyXmhOJDuXvCZ+5PE5w=
+  app: agile-woodland-02526
+  run: rails db:migrate

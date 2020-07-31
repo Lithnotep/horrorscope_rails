@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
             let y = Math.sin(this.position)*this.moveRadius + canvas.height/2;
 
             drawStar(x, y, 7, this.size, this.size/50);
-            ctx.fillStyle = "darkorchid";
+            ctx.fillStyle = "silver";
             ctx.fill();
             ctx.closePath();
         }

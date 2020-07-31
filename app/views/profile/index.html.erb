@@ -11,10 +11,10 @@
         </div>
 
         <div class="profile-button-right">
-          <% if !@user.birthday %>
-          <a class="nav-button1" href="/personal">PERSONAL</a>
-          <% else %>
+          <% if current_user.birthday == nil %>
             <%= link_to "BIRTHDAY", "/users/#{@user.id}/edit", method: "get", :class => "nav-button1"  %>
+          <% else %>
+            <a class="nav-button1" href="/personal">PERSONAL</a>
           <% end %>
         </div>
         <% else %>

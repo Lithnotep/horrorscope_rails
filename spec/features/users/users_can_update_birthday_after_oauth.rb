@@ -17,7 +17,6 @@ RSpec.describe "after logging in" do
     expect(@user.birthday).to eq("1990-05-29")
     expect(current_path).to eq(personal_path)
 
-    # expect(page).to have_content
   end
   it "A user can add event to their calendar" do
 

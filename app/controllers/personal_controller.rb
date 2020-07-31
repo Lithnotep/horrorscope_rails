@@ -10,8 +10,6 @@ class PersonalController < ApplicationController
 
     @date = @message.description[-10..-1]
 
-    # @message = current_user.personal_messages.first.description
-
     neo_id = @user.harbingers.first.neo_id
     @harbinger = NeoSearch.new.harbinger(neo_id)
   end

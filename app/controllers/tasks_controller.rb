@@ -4,7 +4,6 @@ require "google/api_client/client_secrets.rb"
 class TasksController < ApplicationController
   CALENDAR_ID = 'primary'
 
-  # GET /tasks/new
   def new
     date = current_user.personal_messages.last.description[-10..-1]
 
@@ -66,7 +65,6 @@ class TasksController < ApplicationController
     day = date[8..9]
     formatted_date = "#{month}-#{day}-#{year}"
     @cal_date = DateTime.parse(formatted_date)
-    attendees = task[:members].split(',').map{ |t| {email: t.strip} }
     event = Google::Apis::CalendarV3::Event.new({
       summary: task[:title],
       location: '800 Howard St., San Francisco, CA 94103',
@@ -74,14 +72,13 @@ class TasksController < ApplicationController
       start: {
         date_time: @cal_date,
         time_zone: "America/Los_Angeles"
-        # date_time: '2019-09-07T09:00:00-07:00',
-        # time_zone: 'Asia/Kolkata',
+
       },
       end: {
         date_time: @cal_date,
         time_zone: "America/Los_Angeles"
       },
-      attendees: attendees,
+
       reminders: {
         use_default: false,
         overrides: [

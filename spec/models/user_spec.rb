@@ -7,6 +7,7 @@ RSpec.describe User, type: :model do
 
   describe 'Relationships' do
     it {should have_many(:personal_messages)}
-    it {should belong_to :harbinger}
+    it {should have_many(:harbinger_users)}
+    it {should have_many(:harbingers).through(:harbinger_users)}
   end
 end

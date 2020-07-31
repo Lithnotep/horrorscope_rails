@@ -7,14 +7,15 @@ class Scope
 
   def make_scope(fate)
     if fate == "bad"
-      "You're likely to be #{doom} by #{adj+" "+thing} leading to #{death} death on #{@date}"
+      "You're #{likelyhood} to be #{doom} by #{adj+" "+thing} leading to #{death} death on #{@date}"
     else
       "You've narrowly avoided being #{doom} by #{adj+" "+thing} leading to #{death} death on #{@date}"
     end
   end
 
   def likelyhood
-
+    likelyhoods = ["extremely likely", "fairly likely", "likely", "undoubtly going", "without a shadow of a doubt going"]
+    likelyhoods.sample
   end
 
   def doom

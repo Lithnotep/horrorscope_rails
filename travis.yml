@@ -1,0 +1,12 @@
+language: ruby
+rvm:
+ - 2.2
+ - jruby
+services:
+  - postgresql
+script:
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake db:test:prepare
+  - bundle exec rspec
+before_script:
+  - psql -c 'create database db_test;' -U postgres

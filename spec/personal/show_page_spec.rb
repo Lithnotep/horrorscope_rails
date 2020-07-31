@@ -19,7 +19,7 @@ RSpec.describe "Welcome Page" do
     expect(page).to have_content("LOG OUT")
     expect(page).to have_content("HOME")
     expect(page).to have_content("ON THE DAY OF YOUR BIRTH #{@user.harbingers.first.name.upcase}")
-    expect(page).to have_css(".cathulu")
+    expect(page).to have_css(".cathulu-personal")
   end
 
   it "should have landing page, log in link and todays neos but gain no points" do
@@ -30,7 +30,7 @@ RSpec.describe "Welcome Page" do
     expect(page).to have_content("LOG OUT")
     expect(page).to have_content("HOME")
     expect(page).to have_content("ON THE DAY OF YOUR BIRTH ")
-    expect(page).to have_css(".cathulu")
+    expect(page).to have_css(".cathulu-personal")
   end
 
   it "should have landing page, and see change fate and click it to change fate" do
@@ -41,7 +41,7 @@ RSpec.describe "Welcome Page" do
     expect(page).to have_content("LOG OUT")
     expect(page).to have_content("HOME")
     expect(page).to have_content("ON THE DAY OF YOUR BIRTH ")
-    expect(page).to have_css(".cathulu")
+    expect(page).to have_css(".cathulu-personal")
     click_on "ALTER YOUR FATE"
     expect(@user.points).to eq(5)
   end

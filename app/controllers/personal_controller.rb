@@ -3,9 +3,9 @@ class PersonalController < ApplicationController
     @user = current_user
     neo_id = @user.harbingers.first.neo_id
     @harbinger = NeoSearch.new.harbinger(neo_id)
-  
-    unless PersonalMessage.where(date: Date.today.to_s).empty?
-      return @message = PersonalMessage.where(date: Date.today.to_s).first
+
+    unless @user.personal_messages.where(date: Date.today.to_s).empty?
+      return @message = @user.personal_messages.where(date: Date.today.to_s).first
     else
       @message = PersonalMessage.create!(description: Scope.new.description, date: Date.today.to_s, user_id: current_user.id)
       @user.add_point

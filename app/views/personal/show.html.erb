@@ -1,40 +1,47 @@
 <body class="welcome-body">
 
   <div class="welcome-page-header">
-    <div class="welcome-page-header-content-left-side-window">
-      <!-- we will need to bring in personal astriod id and data to this page. -->
-      <h2>Celestial Harbinger:   <%= @user.harbingers.first.name %> </h2>
-      <p>Cursed your fate: <%=  @user.birthday %></p>
-      <p>Current Distance: <!-- <@user.harbingers.first.current_distance  --></p>
-      <p>Currently Orbitting: <!-- <@user.harbingers.first.orbitting %> --></p>
-      <p>Anniverary of Catastrophy: 2028</p>
 
+    <div class="harbinger-data-personal">
+      <h2>THE HARBINGER OF YOUR BIRTH:  <%= @user.harbingers.first.name.upcase %> </h2>
+
+      <div class="personal-page-header-content-subtitle">
+        <p>ON THE DAY OF YOUR BIRTH <%= @user.harbingers.first.name.upcase %> CURSED YOUR DAYS FOREVER MORE.</p>
+      </div>
+
+      <div class="harbinger-personal-report">
+        <p>CURSED YOUR FATE:  <%=  @user.birthday %></p>
+        <p>LAST SEEN:  <%= @harbinger[:orbital_data][:last_observation_date] %></p>
+        <p>EQUINOX:  <%= @harbinger[:orbital_data][:equinox] %></p>
+        <p>BIRTHED INTO THE SOLAR SYSTEM:  <%= @harbinger[:orbital_data][:first_observation_date] %></p>
+      </div>
 
     </div>
-    <div class="welcome-page-header-content">
-      <h1 class="welcome-text">Personal Zodiac</h1>
-        <div class="welcome-page-header-content-subtitle">
-          <p>Track your Harbinger of Doom.</p>
-        </div>
-    </div>
-  </div>
 
-  <div class="personal horoscope">
+
+
+
+
+  <div class="personal-horoscope">
+
     <%  if @user.points == 5 %>
-      <%= button_to "Change your Fate", "/personal/#{@user.id}", method: 'patch' %>
+      <%= button_to "ALTER YOUR FATE", "/personal/#{@user.id}", method: 'patch' %>
     <% end %>
-    <div class="personal message">
+
+    <div class="personal-message">
+      <p>BECAUSE OF <%=@user.harbingers.first.name.upcase %>'S POSITION ON YOUR BIRTHDAY,</p>
       <p><%= @message.description %></p>
-      <p><%= @date %></p>
-    </div>
-    <div class="add-to-cal-button">
-      <%= link_to "Add To Google Calendar", new_task_path %>
     </div>
   </div>
+
+    <div class="add-to-cal-button">
+      <%= link_to "ADD EVENT TO GOOGLE CALENDAR", new_task_path %>
+    </div>
 
   <div class="floaty-cathulu-container">
-    <div class="cathulu">
-      <%= image_tag("icons/whiter_cathulu.png", width: 400) %>
+
+    <div class="cathulu-personal">
+      <%= image_tag("icons/whiter_cathulu.png", width: 100) %>
     </div>
   </div>
 

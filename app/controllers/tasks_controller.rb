@@ -4,16 +4,14 @@ require "google/api_client/client_secrets.rb"
 class TasksController < ApplicationController
   CALENDAR_ID = 'primary'
 
-  # GET /tasks/new
   def new
     date = current_user.personal_messages.last.description[-10..-1]
 
     year = date[0..3]
     month = date[5..6]
     day = date[8..9]
-    formatted_date = "#{month}-#{day}-#{year} #{Time.now}"
+    formatted_date = "#{month}-#{day}-#{year}"
     @cal_date = DateTime.parse(formatted_date)
-
     @description = current_user.personal_messages.last.description
     @task = Task.new
   end
@@ -60,15 +58,13 @@ class TasksController < ApplicationController
   private
 
   def get_event task
-    date = current_user.personal_messages.first.description[-10..-1]
+    date = current_user.personal_messages.last.description[-10..-1]
 
     year = date[0..3]
     month = date[5..6]
     day = date[8..9]
-    formatted_date = "#{month}-#{day}-#{year} #{Time.now}"
+    formatted_date = "#{month}-#{day}-#{year}"
     @cal_date = DateTime.parse(formatted_date)
-    require "pry"; binding.pry
-    attendees = task[:members].split(',').map{ |t| {email: t.strip} }
     event = Google::Apis::CalendarV3::Event.new({
       summary: task[:title],
       location: '800 Howard St., San Francisco, CA 94103',
@@ -76,14 +72,13 @@ class TasksController < ApplicationController
       start: {
         date_time: @cal_date,
         time_zone: "America/Los_Angeles"
-        # date_time: '2019-09-07T09:00:00-07:00',
-        # time_zone: 'Asia/Kolkata',
+
       },
       end: {
         date_time: @cal_date,
         time_zone: "America/Los_Angeles"
       },
-      attendees: attendees,
+
       reminders: {
         use_default: false,
         overrides: [

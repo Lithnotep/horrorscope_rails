@@ -10,46 +10,40 @@ RSpec.describe "Welcome Page" do
     fill_in :birthday, with: "1990-05-29"
 
     click_on "CONTINUE"
-
   end
 
   it "should have landing page, log in link and todays neos" do
 
-
     visit "/personal"
-    expect(page).to have_content("Personal Zodiac")
+    expect(page).to have_content("THE HARBINGER OF YOUR BIRTH")
     expect(page).to have_content("LOG OUT")
     expect(page).to have_content("HOME")
-    expect(page).to have_content("Track your Harbinger of Doom")
-    expect(page).to have_css(".cathulu")
-    # cathulu = find(:css, ".cathulu")
-    # expect(cathulu).not_to be_empty
-    # expect(page).to have_content("project statement and intent")
+    expect(page).to have_content("ON THE DAY OF YOUR BIRTH #{@user.harbingers.first.name.upcase}")
+    expect(page).to have_css(".cathulu-personal")
   end
+
   it "should have landing page, log in link and todays neos but gain no points" do
 
     visit "/personal"
     expect(@user.points).to eq(5)
-    expect(page).to have_content("Personal Zodiac")
+    expect(page).to have_content("THE HARBINGER OF YOUR BIRTH")
     expect(page).to have_content("LOG OUT")
     expect(page).to have_content("HOME")
-    expect(page).to have_content("Track your Harbinger of Doom")
-    expect(page).to have_css(".cathulu")
-    # cathulu = find(:css, ".cathulu")
-    # expect(cathulu).not_to be_empty
-    # expect(page).to have_content("project statement and intent")
+    expect(page).to have_content("ON THE DAY OF YOUR BIRTH ")
+    expect(page).to have_css(".cathulu-personal")
   end
+
   it "should have landing page, and see change fate and click it to change fate" do
 
     visit "/personal"
     expect(@user.points).to eq(5)
-    expect(page).to have_content("Personal Zodiac")
+    expect(page).to have_content("THE HARBINGER OF YOUR BIRTH")
     expect(page).to have_content("LOG OUT")
     expect(page).to have_content("HOME")
-    expect(page).to have_content("Track your Harbinger of Doom")
-    expect(page).to have_css(".cathulu")
-    click_on "Change your Fate"
+    expect(page).to have_content("ON THE DAY OF YOUR BIRTH ")
+    expect(page).to have_css(".cathulu-personal")
+    click_on "ALTER YOUR FATE"
     expect(@user.points).to eq(5)
-    
   end
+
 end

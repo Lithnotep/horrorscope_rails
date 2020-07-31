@@ -13,12 +13,9 @@
  *= require_tree .
  *= require_self
  */
- /* body  {
-   cursor: url('icons/cathuluicon.png'), auto;
- } */
+
 .welcome-body {
    background-color: #101010;
-   /* cursor: url('icons/cathuluicon.png'), auto; */
  }
 
 
@@ -42,6 +39,14 @@
   margin-right: auto;
   padding-bottom: 200px;
   opacity: .2 ;
+}
+.cathulu-personal {
+  animation: MoveUpDown 2.5s linear infinite;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 384px;
+  opacity: .6 ;
 }
 .cathulu-stationary{
   display: flex;
@@ -97,15 +102,17 @@ a {
 }
 
 .add-to-cal-button{
-  background-color: white;
   color: #101010;
+  background-color: white;
   text-align: center;
   text-transform: uppercase;
-  font-size: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  font-size: 16px;
+  margin-left: 480px;
+  margin-right: 480px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  border-radius: 25px;
+  letter-spacing: .1px;
 }
 .profile-button-right {
   float: right;
@@ -126,6 +133,7 @@ a {
   padding-top: 60px;
   letter-spacing: 8px;
 }
+
 .BIRTHDAY-HEADER-text {
   font-size: 20px;
   text-align: center;
@@ -138,10 +146,16 @@ a {
   padding-top: 12px;
   text-align: center;
 }
+.personal-page-header-content-subtitle {
+  font-size: 12px;
+  letter-spacing: 9px;
+  padding-bottom: 10px;
+  text-align: center;
+  /* margin-bottom: 60px; */
+}
 .user-edit-page-header-content-subtitle {
   font-size: 14px;
   letter-spacing: 9px;
-  padding-top: 12px;
   text-align: center;
   color: white;
 }
@@ -180,12 +194,12 @@ p{
 .daily-header {
   font-size: 30px;
   text-align: center;
-  padding-top: 30px;
+  padding-top: 6px;
   letter-spacing: 8px;
 }
 
 .daily-subheader {
-  font-size: 18px;
+  font-size: 16px;
   text-align: center;
   padding-top: 30px;
   letter-spacing: 5px;
@@ -195,6 +209,7 @@ p{
   color: white;
   font-size: 13px;
   letter-spacing: 6px;
+  margin-bottom: 30px;
   text-align: center;
 }
 
@@ -204,9 +219,8 @@ p{
   letter-spacing: 1px;
   text-transform: uppercase;
   text-align: center;
-  bottom: 150px;
   align-items: center;
-  padding-top: 100px;
+  padding-top: 30px;
 }
 .daily-harbinger-info{
   background-color: #282828;
@@ -214,32 +228,81 @@ p{
   padding-bottom: 20px;
   padding-left: 20px;
   padding-right: 20px;
-  margin-bottom: 50px;
+  margin-bottom: 60px;
+  border-radius: 15px;
 }
 .daily-horrorscope-info{
   background-color: #282828;
-  /* padding-top: 20px; */
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: 300px;
+  margin-right: 300px;
+  border-radius: 15px;
+}
+.harbinger-data-personal{
+  margin-top: 20px;
+}
+.personal-horoscope{
+  background-color: #282828;
+  padding-top: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
   padding-bottom: 20px;
+  margin-left: 320px;
+  margin-right: 320px;
+  /* margin-top: 6px; */
+  margin-bottom: 20px;
+  align-items: center;
+  text-align: center;
+  border-radius: 15px;
+  letter-spacing: 1px;
+}
+.personal-zodiac-text{
+  font-size: 30px;
+  text-align: center;
+  letter-spacing: 8px;
+}
+.harbinger-personal-report{
+  /* background-color: #282828; */
+  padding-top: 70px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 10px;
   margin-left: 340px;
   margin-right: 340px;
-
+  margin-top: 80px;
+  font-size: 14px;
+  letter-spacing: 2px;
+  align-items: center;
 }
 
 .neo_image {
   animation: MoveUpDown 2.5s linear infinite;
   position: relative;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
+}
+
+.personal-page-subheader-content{
 
 }
+.personal_message{
+  text-color: white;
+}
+
 .neos {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
 }
+
 .profile_page_header_content_title{
   font-size: 30px;
   text-align: center;
   padding-top: 60px;
   letter-spacing: 8px;
+}
+
+.navbar {
+  z-index:2;
 }

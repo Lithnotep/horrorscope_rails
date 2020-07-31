@@ -19,9 +19,6 @@
     overflow: hidden;
   }
 
-  /* li {
-    color: #101010;
-  } */
 
   li a {
     display: block;
@@ -43,15 +40,12 @@
   }
   li a:hover {
     background-color: #404040;
+    border-radius: 5px;
   }
 
 
   </style>
-  <!-- <style type="text/css">
-    body{
-      cursor: url('icons/cathuluicon.png'), auto;
-    }
-  </style> -->
+
 
 <body>
     <nav>
@@ -61,8 +55,8 @@
           <li style="float:left"><a class= "nav-button1"><%= link_to 'DAILY', daily_index_path %></a></li>
           <% if current_user.nil? %>
             <li style="float:right"><a class= "nav-button2"><%= link_to 'LOG IN', '/auth/google'%></a></li>
-          <% else %>
-            <li style="float:left"><a class= "nav-button3"> <%= link_to 'PROFILE', "/personal" %></a></li>
+          <% else%>
+            <li style="float:left"><a class= "nav-button3"> <%= link_to 'PROFILE', "/personal" if current_user.birthday%></a></li>
             <li style="float:right"><a class= "nav-button2"> <%= link_to 'LOG OUT', "/logout"%></a></li>
           <% end %>
         </ul>

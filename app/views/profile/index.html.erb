@@ -1,25 +1,25 @@
 <body class="welcome-body">
+    <div class='navbar'>
 
-  <!-- <canvas id="canvas1"></canvas> -->
-
+    </div>
     <canvas id="canvas1"></canvas>
     <div class="profile_page_header_content">
+      <% if @user %>
       <h2 text-align='center;' class="profile_page_header_content_title" >CHOOSE YOUR FATE</h2><br><br>
         <div class="profile-button-left">
-          <a><%= link_to "TODAYS READING", "/daily" %></a>
+          <a class="nav-button1" href="/daily">TODAYS READING</a>
         </div>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
         <div class="profile-button-right">
-          <% if !@user.birthday %>
-            <a><%= link_to "BIRTHDAY", "/users/#{@user.id}/edit"%></a>
+          <% if current_user.birthday == nil %>
+            <%= link_to "BIRTHDAY", "/users/#{@user.id}/edit", method: "get", :class => "nav-button1"  %>
           <% else %>
-            <a><%= link_to "PERSONAL PROFILE", "/personal" if @user.birthday %></a>
+            <a class="nav-button1" href="/personal">PERSONAL</a>
           <% end %>
         </div>
-    </div>
-    <div class="cathulu-stationary">
-      <%=image_tag("icons/whiter_cathulu.png", width: 200) %>
+        <% else %>
+        <p>LOG IN TO SEE YOUR FATE</p>
     </div>
 
-
+    <% end %>
 </body>

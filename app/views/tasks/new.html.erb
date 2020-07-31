@@ -7,30 +7,20 @@
 
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_field :description, value: @description %>
+    <%= form.text_field :description, value: @description, readonly: true %>
   </div>
 
   <div class="field">
     <%= form.label :start_date %>
-    <%= form.datetime_select :start_date, :default=> @cal_date %>
+    <%= form.date_field :start_date, :default=> @cal_date, readonly: true %>
   </div>
 
   <div class="field">
     <%= form.label :end_date %>
-    <%= form.datetime_select :end_date, :default=> @cal_date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :event %>
-    <%= form.text_field :event %>
-  </div>
-
-  <div class="field">
-    <%= form.label :members %>
-    <%= form.text_field :members %>
+    <%= form.date_field :end_date, :default=> @cal_date, readonly: true %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Add To Calendar" %>
   </div>
 <% end %>

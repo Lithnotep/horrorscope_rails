@@ -24,7 +24,7 @@ class Scope
   end
 
   def thing
-    things = ["Star-Child of Lost Kadath", "swarm of shotgun toting grasshoppers", "deceptively fast sloth", "Bear", "Spawn of Darkness", "Whisperer in the Darkness", "Ineffable Color", "Waking Dream", "heard of duck sized horses", "a measly gnat", "A rainstorm of cockraoches", "a bathtub", "a necktie seeking revenge", "a cloud of razor sharp buttlerflies", "Unspeakable Truth", "Cat", "Demon", "Shoggoth", "Assassin", "Tear in Spacetime", "Fear made Manifest", "a tasteless, odorless liquid " "Terror of the Depths", "Voice who speaks terrible truths"]
+    things = ["Star-Child of Lost Kadath", "swarm of shotgun toting grasshoppers", "deceptively fast sloth", "Bear", "Spawn of Darkness", "Whisperer in the Darkness", "Ineffable Color", "Waking Dream", "heard of duck sized horses", "measly gnat", "rainstorm of cockraoches", "bathtub", "necktie seeking revenge", "cloud of razor sharp buttlerflies", "Unspeakable Truth", "Cat", "Demon", "Shoggoth", "Assassin", "Tear in Spacetime", "Fear made Manifest", "tasteless, odorless liquid " "Terror of the Depths", "Voice who speaks terrible truths"]
     things.sample
   end
 

@@ -1,15 +1,15 @@
 <body class="welcome-body">
+    <div class='navbar'>
 
-  <!-- <canvas id="canvas1"></canvas> -->
-
+    </div>
     <canvas id="canvas1"></canvas>
     <div class="profile_page_header_content">
       <% if @user %>
       <h2 text-align='center;' class="profile_page_header_content_title" >CHOOSE YOUR FATE</h2><br><br>
         <div class="profile-button-left">
-          <a class="nav-button1" href="/daily">DAILY</a>
+          <a class="nav-button1" href="/daily">TODAYS READING</a>
         </div>
-        <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+
         <div class="profile-button-right">
           <% if !@user.birthday %>
           <a class="nav-button1" href="/personal">PERSONAL</a>
@@ -18,11 +18,8 @@
           <% end %>
         </div>
         <% else %>
-        <p>Log in to see your fate</p>
+        <p>LOG IN TO SEE YOUR FATE</p>
     </div>
-    <!-- <div class="cathulu-stationary">
-      image_tag("icons/whiter_cathulu.png", width: 200) %>
-    </div> -->
 
     <% end %>
 </body>
